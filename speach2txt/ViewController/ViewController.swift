@@ -90,7 +90,8 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        print("get error: didReceiveMemoryWarning()...")
     }
 
 
@@ -127,17 +128,19 @@ extension ViewController {
         
         recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
         
-        guard let inputNode = audioEngine.inputNode as? AVAudioInputNode else {
-            fatalError("Audio engine has no input node")
-        }
+        let inputNode = audioEngine.inputNode as AVAudioInputNode
+        
         guard let recognitionRequest = recognitionRequest else {
             fatalError("Unable to create an SFSpeechAudioBufferRecognitionRequest object")
         }
         recognitionRequest.shouldReportPartialResults = true
         recognitionTask = speechRecognizer?.recognitionTask(with: recognitionRequest, resultHandler: { (result, error) in
             var isFinal = false
-            if result != nil {
-                self.textView.text = result?.bestTranscription.formattedString
+            print("recognitionRequest isFinal = \(isFinal)") // TODO: rmeove this!!!
+            if result != nil {  // MARK: -  get current result and put into textView
+                let getTxt = result?.bestTranscription.formattedString ?? ""
+                print("get text = \(getTxt)")
+                self.textView.text = getTxt
                 isFinal = (result?.isFinal)!
             }
             if error != nil || isFinal {
