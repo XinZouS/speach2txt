@@ -149,7 +149,7 @@ extension ViewController {
                 
                 self.micphoneButton.isEnabled = true
             }
-        })
+        }) 
         
         let recordingFormat = inputNode.outputFormat(forBus: 0)
         inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { (buffer, when) in
