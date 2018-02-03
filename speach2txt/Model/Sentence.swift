@@ -7,3 +7,16 @@
 //
 
 import Foundation
+import Unbox
+
+struct Sentence {
+    
+    let timestamp: TimeInterval
+    let string: String
+    
+    init(timestamp t: TimeInterval, string s: String) {
+        self.timestamp = t
+        self.string = s
+    }
+    
+}
