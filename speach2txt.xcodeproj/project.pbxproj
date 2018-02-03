@@ -14,9 +14,11 @@
 		66AA6B661F99A087000E64D5 /* UIView++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AA6B651F99A087000E64D5 /* UIView++.swift */; };
 		66E2C9841FB7B5C6000B250E /* AudioServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E2C9831FB7B5C6000B250E /* AudioServer.swift */; };
 		66FCB45820261A5200A96AF6 /* Sentence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FCB45720261A5200A96AF6 /* Sentence.swift */; };
+		B593A36D64E5DAE4CDCA0F39 /* Pods_speach2txt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8F6685201AD9372B1FF1686 /* Pods_speach2txt.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E8CBE960404DB060259B06E /* Pods-speach2txt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-speach2txt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-speach2txt/Pods-speach2txt.debug.xcconfig"; sourceTree = "<group>"; };
 		66AA6B501F999C49000E64D5 /* speach2txt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = speach2txt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66AA6B531F999C49000E64D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66AA6B551F999C49000E64D5 /* SpeachTextVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeachTextVC.swift; sourceTree = "<group>"; };
@@ -26,6 +28,8 @@
 		66AA6B651F99A087000E64D5 /* UIView++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView++.swift"; sourceTree = "<group>"; };
 		66E2C9831FB7B5C6000B250E /* AudioServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioServer.swift; sourceTree = "<group>"; };
 		66FCB45720261A5200A96AF6 /* Sentence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sentence.swift; sourceTree = "<group>"; };
+		D8F6685201AD9372B1FF1686 /* Pods_speach2txt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_speach2txt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E45DD46246525CBB2E56DCEC /* Pods-speach2txt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-speach2txt.release.xcconfig"; path = "Pods/Target Support Files/Pods-speach2txt/Pods-speach2txt.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +37,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B593A36D64E5DAE4CDCA0F39 /* Pods_speach2txt.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		20FAF56B404D08A697BC5A03 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D8F6685201AD9372B1FF1686 /* Pods_speach2txt.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		66AA6B471F999C49000E64D5 = {
 			isa = PBXGroup;
 			children = (
 				66AA6B521F999C49000E64D5 /* speach2txt */,
 				66AA6B511F999C49000E64D5 /* Products */,
+				FE21CC173649CFB48C310430 /* Pods */,
+				20FAF56B404D08A697BC5A03 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -102,6 +117,15 @@
 			path = "Helper++";
 			sourceTree = "<group>";
 		};
+		FE21CC173649CFB48C310430 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4E8CBE960404DB060259B06E /* Pods-speach2txt.debug.xcconfig */,
+				E45DD46246525CBB2E56DCEC /* Pods-speach2txt.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -109,9 +133,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 66AA6B621F999C49000E64D5 /* Build configuration list for PBXNativeTarget "speach2txt" */;
 			buildPhases = (
+				B78A1777EC9ABF88A4C928EF /* [CP] Check Pods Manifest.lock */,
 				66AA6B4C1F999C49000E64D5 /* Sources */,
 				66AA6B4D1F999C49000E64D5 /* Frameworks */,
 				66AA6B4E1F999C49000E64D5 /* Resources */,
+				355F9688FDC770CA5FBC108B /* [CP] Embed Pods Frameworks */,
+				3C315AE482750E3361D49E49 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,6 +194,60 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		355F9688FDC770CA5FBC108B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-speach2txt/Pods-speach2txt-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Unbox/Unbox.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Unbox.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-speach2txt/Pods-speach2txt-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3C315AE482750E3361D49E49 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-speach2txt/Pods-speach2txt-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B78A1777EC9ABF88A4C928EF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-speach2txt-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		66AA6B4C1F999C49000E64D5 /* Sources */ = {
@@ -304,6 +385,7 @@
 		};
 		66AA6B631F999C49000E64D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4E8CBE960404DB060259B06E /* Pods-speach2txt.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -320,6 +402,7 @@
 		};
 		66AA6B641F999C49000E64D5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E45DD46246525CBB2E56DCEC /* Pods-speach2txt.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

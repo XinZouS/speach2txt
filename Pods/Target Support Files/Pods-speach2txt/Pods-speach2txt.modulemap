@@ -1,0 +1,6 @@
+framework module Pods_speach2txt {
+  umbrella header "Pods-speach2txt-umbrella.h"
+
+  export *
+  module * { export * }
+}
