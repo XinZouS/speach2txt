@@ -8,20 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		66AA6B541F999C49000E64D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AA6B531F999C49000E64D5 /* AppDelegate.swift */; };
-		66AA6B561F999C49000E64D5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AA6B551F999C49000E64D5 /* ViewController.swift */; };
+		66AA6B561F999C49000E64D5 /* SpeachTextVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AA6B551F999C49000E64D5 /* SpeachTextVC.swift */; };
 		66AA6B5B1F999C49000E64D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66AA6B5A1F999C49000E64D5 /* Assets.xcassets */; };
 		66AA6B5E1F999C49000E64D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66AA6B5C1F999C49000E64D5 /* LaunchScreen.storyboard */; };
 		66AA6B661F99A087000E64D5 /* UIView++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AA6B651F99A087000E64D5 /* UIView++.swift */; };
+		66E2C9841FB7B5C6000B250E /* AudioServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E2C9831FB7B5C6000B250E /* AudioServer.swift */; };
+		66FCB45820261A5200A96AF6 /* Sentence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FCB45720261A5200A96AF6 /* Sentence.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		66AA6B501F999C49000E64D5 /* speach2txt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = speach2txt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66AA6B531F999C49000E64D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		66AA6B551F999C49000E64D5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		66AA6B551F999C49000E64D5 /* SpeachTextVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeachTextVC.swift; sourceTree = "<group>"; };
 		66AA6B5A1F999C49000E64D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		66AA6B5D1F999C49000E64D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		66AA6B5F1F999C49000E64D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		66AA6B651F99A087000E64D5 /* UIView++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView++.swift"; sourceTree = "<group>"; };
+		66E2C9831FB7B5C6000B250E /* AudioServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioServer.swift; sourceTree = "<group>"; };
+		66FCB45720261A5200A96AF6 /* Sentence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sentence.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,13 +59,47 @@
 			isa = PBXGroup;
 			children = (
 				66AA6B531F999C49000E64D5 /* AppDelegate.swift */,
-				66AA6B551F999C49000E64D5 /* ViewController.swift */,
-				66AA6B651F99A087000E64D5 /* UIView++.swift */,
+				66E2C9851FB7B5D1000B250E /* Model */,
+				66E2C9861FB7B5DC000B250E /* ViewController */,
+				66E2C9871FB7B5EE000B250E /* ServerManager */,
+				66E2C9881FB7B5FF000B250E /* Helper++ */,
 				66AA6B5A1F999C49000E64D5 /* Assets.xcassets */,
 				66AA6B5C1F999C49000E64D5 /* LaunchScreen.storyboard */,
 				66AA6B5F1F999C49000E64D5 /* Info.plist */,
 			);
 			path = speach2txt;
+			sourceTree = "<group>";
+		};
+		66E2C9851FB7B5D1000B250E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				66FCB45720261A5200A96AF6 /* Sentence.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		66E2C9861FB7B5DC000B250E /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				66AA6B551F999C49000E64D5 /* SpeachTextVC.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		66E2C9871FB7B5EE000B250E /* ServerManager */ = {
+			isa = PBXGroup;
+			children = (
+				66E2C9831FB7B5C6000B250E /* AudioServer.swift */,
+			);
+			path = ServerManager;
+			sourceTree = "<group>";
+		};
+		66E2C9881FB7B5FF000B250E /* Helper++ */ = {
+			isa = PBXGroup;
+			children = (
+				66AA6B651F99A087000E64D5 /* UIView++.swift */,
+			);
+			path = "Helper++";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,7 +173,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66AA6B561F999C49000E64D5 /* ViewController.swift in Sources */,
+				66AA6B561F999C49000E64D5 /* SpeachTextVC.swift in Sources */,
+				66E2C9841FB7B5C6000B250E /* AudioServer.swift in Sources */,
+				66FCB45820261A5200A96AF6 /* Sentence.swift in Sources */,
 				66AA6B541F999C49000E64D5 /* AppDelegate.swift in Sources */,
 				66AA6B661F99A087000E64D5 /* UIView++.swift in Sources */,
 			);
@@ -269,6 +309,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6S4EWJH888;
 				INFOPLIST_FILE = speach2txt/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.stevens.xinzou.speach2txt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -284,6 +325,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6S4EWJH888;
 				INFOPLIST_FILE = speach2txt/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.stevens.xinzou.speach2txt;
 				PRODUCT_NAME = "$(TARGET_NAME)";

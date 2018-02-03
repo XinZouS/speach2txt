@@ -8,11 +8,10 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class SpeachTextVC: UIViewController {
     
-    var isRecording = false
+    let placeHolder = "tap button and say hello 😆"
     
-    let placeHolder = "Say something😆, I am listening!"
     lazy var textView : UITextView = {
         let t = UITextView()
         t.font = UIFont.systemFont(ofSize: 26)
@@ -32,17 +31,25 @@ class ViewController: UIViewController {
         return b
     }()
     
+    var pulsatingLayer: CAShapeLayer!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
         
         setupTextView()
+        setupButtonPulsLayer()
         setupMicphoneButton()
-     
+
+        AudioServer.share.setupSpeech { (success) in
+            //
+        }
     }
     
     private func setupTextView(){
         textView.text = placeHolder
+        textView.allowsEditingTextAttributes = false
+        textView.isUserInteractionEnabled = false
         view.addSubview(textView)
         textView.addConstraints(left: view.leftAnchor, top: view.topAnchor, right: view.rightAnchor, bottom: view.bottomAnchor, leftConstent: 30, topConstent: 40, rightConstent: 30, bottomConstent: 60, width: 0, height: 0)
     }
@@ -52,28 +59,52 @@ class ViewController: UIViewController {
         micphoneButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
     
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    private func setupButtonPulsLayer() {
+        let circularPath = UIBezierPath(arcCenter: .zero, radius: 43, startAngle: -CGFloat.pi / 2.0, endAngle: 1.5 * CGFloat.pi, clockwise: true)
+        // startAngle: [ -pi/2: 0'oclock, 0: 3'oclock, pi/2 = 6'oclock]
         
-        print("get error: didReceiveMemoryWarning()...")
+        // add pulsatingLayer:
+        pulsatingLayer = CAShapeLayer()
+        pulsatingLayer.path = circularPath.cgPath
+        pulsatingLayer.strokeColor = UIColor.clear.cgColor // line color
+        pulsatingLayer.fillColor = UIColor.orange.cgColor // in circle color
+        view.layer.addSublayer(pulsatingLayer)
+        pulsatingLayer.position = CGPoint(x: view.center.x, y: view.bounds.height - 60)
+        animatePulsatingLayer()
+    }
+    
+    private func animatePulsatingLayer() {
+        let animate = CABasicAnimation(keyPath: "transform.scale")
+        animate.toValue = 1.2
+        animate.duration = 2.0
+        animate.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        animate.repeatCount = 1000
+        animate.autoreverses = true
+        pulsatingLayer.add(animate, forKey: "pulsing")
     }
 
-
+    
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        print("get error: didReceiveMemoryWarning()...")
+    }
 }
 
 
-extension ViewController {
+extension SpeachTextVC {
     
     @objc func micphonButtonTapped() {
-        if audioEngine.isRunning {
-            audioEngine.stop()
-            recognitionRequest?.endAudio()
-            micphoneButton.isEnabled = false
+        if AudioServer.share.audioEngine.isRunning {
+            AudioServer.share.stopRecording()
             micphoneButton.setImage(#imageLiteral(resourceName: "micphone"), for: .normal)
+            pulsatingLayer.fillColor = UIColor.orange.cgColor
         } else {
-            startRecording()
+            AudioServer.share.startRecording(completion: { (isFinal, getText) in
+                self.textView.text = getText
+            })
             micphoneButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
+            pulsatingLayer.fillColor = UIColor.yellow.cgColor
         }
     }
     
