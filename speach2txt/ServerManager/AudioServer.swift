@@ -75,8 +75,6 @@ class AudioServer: NSObject, SFSpeechRecognizerDelegate {
         
         guard let recognitionRequest = recognitionRequest else {
             fatalError("Unable to create an SFSpeechAudioBufferRecognitionRequest object")
-            completion(false, "")
-            return
         }
         let recordingFormat = inputNode.outputFormat(forBus: 0)
         inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { (buffer, when) in
@@ -98,7 +96,7 @@ class AudioServer: NSObject, SFSpeechRecognizerDelegate {
             print("recognitionRequest isFinal = \(isFinal)") // TODO: rmeove this!!!
             if result != nil {  // MARK: -  get current result and put into textView
                 getTxt = result?.bestTranscription.formattedString ?? ""
-                print("get text = \(getTxt)")
+                print("[AUDIO] audioServer get result text = \(getTxt)")
 //                self.textView.text = getTxt
                 isFinal = (result?.isFinal)!
             }
